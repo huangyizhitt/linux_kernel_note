@@ -19,3 +19,46 @@
 
 
 # 源码剖析
+
+# 用户接口
+&emsp;&emsp;linux通过文件系统将拓扑结构信息传递给用户态。通过访问/sys/devices/system/cpu/cpuX/topology/下各文件内容，可获取：
+* /sys/devices/system/cpu/cpuX/topology/physical_package_id:  
+	physical package id of cpuX. Typically corresponds to a physical
+	socket number, but the actual value is architecture and platform
+	dependent.
+* /sys/devices/system/cpu/cpuX/topology/core_id:  
+	the CPU core ID of cpuX. Typically it is the hardware platform's
+	identifier (rather than the kernel's).  The actual value is
+	architecture and platform dependent.
+* /sys/devices/system/cpu/cpuX/topology/book_id:  
+	the book ID of cpuX. Typically it is the hardware platform's
+	identifier (rather than the kernel's).	The actual value is
+	architecture and platform dependent.
+* /sys/devices/system/cpu/cpuX/topology/drawer_id:  
+	the drawer ID of cpuX. Typically it is the hardware platform's
+	identifier (rather than the kernel's).	The actual value is
+	architecture and platform dependent.
+* /sys/devices/system/cpu/cpuX/topology/thread_siblings:  
+	internal kernel map of cpuX's hardware threads within the same
+	core as cpuX.
+* /sys/devices/system/cpu/cpuX/topology/thread_siblings_list:  
+	human-readable list of cpuX's hardware threads within the same
+	core as cpuX.
+* /sys/devices/system/cpu/cpuX/topology/core_siblings:  
+	internal kernel map of cpuX's hardware threads within the same
+	physical_package_id.
+* /sys/devices/system/cpu/cpuX/topology/core_siblings_list:  
+	human-readable list of cpuX's hardware threads within the same
+	physical_package_id.
+* /sys/devices/system/cpu/cpuX/topology/book_siblings:  
+	internal kernel map of cpuX's hardware threads within the same
+	book_id.
+* /sys/devices/system/cpu/cpuX/topology/book_siblings_list:  
+	human-readable list of cpuX's hardware threads within the same
+	book_id.
+* /sys/devices/system/cpu/cpuX/topology/drawer_siblings:  
+	internal kernel map of cpuX's hardware threads within the same
+	drawer_id.
+* /sys/devices/system/cpu/cpuX/topology/drawer_siblings_list:  
+	human-readable list of cpuX's hardware threads within the same
+	drawer_id.
